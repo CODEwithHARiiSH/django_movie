@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+   <!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    Update List
+  </a>
+    <a class="navbar-brand" href="{% url 'movie:home'  %}">HOME</a>
+</nav>
+<form method="post" enctype="multipart/form-data">
+
+  {% csrf_token %}
+  {{form.as.p}}
+
+   <label>Enter Movie Name : </label>
+  <input type="text" name="name"><br>
+    <label>Enter the Movie description : </label>
+  <input type="text" name="desc"><br>
+    <label>Enter year : </label>
+  <input type="text" name="year"><br>
+    <label>Input Image : </label>
+  <input type="file" name="img"><br>
+  <input type="submit">
+
+</form>
+</body>
+</html>

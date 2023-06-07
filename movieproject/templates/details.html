@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+   <!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    Movie List
+  </a>
+    <a class="navbar-brand" href="{% url 'movie:update' idd.id %}">UPDATE</a>
+    <a class="navbar-brand" href="{% url 'movie:delete' idd.id %}">DELETE</a>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{idd.img.url}}" width="300" height="400">
+            </div>
+            <div class="col-md-6">
+              <h4 style="color:white;">Movie Name :</h4>
+                  <h4>{{idd.name}}</h4>
+                  <h5 style="color:white;">Year :</h5>
+                  {{idd.year}}
+                   <h5 style="color:white;">Description :</h5>
+                  <h5>{{idd.desc}}</h5><br>
+            </div>
+    </div>
+</div>
+
+</body>
+</html>
